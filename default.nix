@@ -8,13 +8,13 @@ let
 
   pkgs = import (builtins.fetchTarball {
     name = "pinned-nixpkgs";
-    url = https://github.com/nixos/nixpkgs/archive/34b37ad59c46fa273a03944c3f10e269f3984852.tar.gz;
-    sha256 = "09hsmbpiycyffjq7k49g8qav4fwlj6nrp9nzxpk5rm1rws8h9z61";
+    url = https://github.com/nixos/nixpkgs/archive/fe4a08c3d3a48755374d37fcf93d09ee6ad1aaa7.tar.gz;
+    sha256 = "1kba3sdgfh2prj3fav92mlgrfcijb4bdnqdi60jdm7jf2jkf4dlc";
   }) {};
 
   pulumictl = pkgs.buildGoModule rec {
     pname = "pulumictl";
-    version = "0.0.19";
+    version = "0.0.28";
     src = pkgs.fetchFromGitHub {
       owner = "pulumi";
       repo = "pulumictl";
@@ -31,7 +31,7 @@ let
     pkgs.dotnet-sdk_3
     pkgs.gcc
     pkgs.git
-    pkgs.go
+    pkgs.go_1_17
     pkgs.golangci-lint
     pkgs.nodePackages.typescript
     pkgs.nodejs

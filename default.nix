@@ -8,8 +8,8 @@ let
 
   pkgs = import (builtins.fetchTarball {
     name = "pinned-nixpkgs";
-    url = https://github.com/nixos/nixpkgs/archive/fe4a08c3d3a48755374d37fcf93d09ee6ad1aaa7.tar.gz;
-    sha256 = "1kba3sdgfh2prj3fav92mlgrfcijb4bdnqdi60jdm7jf2jkf4dlc";
+    url = https://github.com/nixos/nixpkgs/archive/64cd57dd4fcf75e276543e182097cad5a6b234fb.tar.gz;
+    sha256 = "130j47imxqpyvhgnmd6kkrnlgwk432iirz9pzq93cwz0p0cs2cq1";
   }) {};
 
   pulumictl = pkgs.buildGoModule rec {
@@ -32,6 +32,7 @@ let
     pkgs.gcc
     pkgs.git
     pkgs.go_1_17
+    pkgs.delve
     pkgs.golangci-lint
     pkgs.nodePackages.typescript
     pkgs.nodejs
@@ -41,7 +42,7 @@ let
     pkgs.yarn
   ];
 
-  env = pkgs.stdenv.mkDerivation {
+  env = pkgs.mkShell {
     name = "pulumi-nix-devenv";
     buildInputs = deps;
   };

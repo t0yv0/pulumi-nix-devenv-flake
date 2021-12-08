@@ -4,19 +4,20 @@ let
 
   deps = [
     go
-    pulumictl
     pkgs.curl
+    pkgs.delve
     pkgs.dotnet-sdk_3
     pkgs.gcc
     pkgs.git
-    pkgs.delve
     pkgs.golangci-lint
+    pkgs.goreleaser
     pkgs.nodePackages.typescript
     pkgs.nodejs
     pkgs.pipenv
     pkgs.python3
     pkgs.which
     pkgs.yarn
+    pulumictl
   ];
 
   env = pkgs.mkShell {

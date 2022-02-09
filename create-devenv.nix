@@ -7,10 +7,12 @@ let
     pkgs.curl
     pkgs.delve
     pkgs.dotnet-sdk_3
+    pkgs.gradle
     pkgs.gcc
     pkgs.git
     pkgs.golangci-lint
     pkgs.goreleaser
+    pkgs.jdk11
     pkgs.nodePackages.typescript
     pkgs.nodejs
     pkgs.pipenv

@@ -1,8 +1,8 @@
 let tarball = builtins.fetchTarball
   {
     name   = "pinned-nixpkgs";
-    url    = https://github.com/nixos/nixpkgs/archive/499bd17576c0df0b368f4e04329ec2550bc10e9b.tar.gz;
-    sha256 = "15adsgsf0cw2gdh95r8blxn5ypighxlw550nppqprdla2k19rmg2";
+    url    = https://github.com/nixos/nixpkgs/archive/c4384583ea0cfdc5ca64f58b9597dc2e3495f928.tar.gz;
+    sha256 = "1plf08d996nk82zdshh6ciw19h6jznvza82jcncdvgdpy2g7zbdm";
   };
 
 in import tarball {}

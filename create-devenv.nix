@@ -12,6 +12,7 @@ let
     pkgs.git
     pkgs.golangci-lint
     pkgs.goreleaser
+    pkgs.go-task
     pkgs.jdk11
     pkgs.nodePackages.typescript
     pkgs.nodejs

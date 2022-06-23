@@ -12,6 +12,10 @@
 #     gcc-wrapper-11.3.0
 #     ...
 #
+# You can also install individual packages like this:
+#
+#     $ nix-env -f derivations.nix --install jq
+#
 # To keep your install up-to date use --upgrade:
 #
 #     $ nix-env -f derivations.nix --upgrade '.*'
@@ -27,5 +31,6 @@ let
 
 in derivs ++ [
   pkgs.gnumake
+  pkgs.jq
   pulumictl
 ]

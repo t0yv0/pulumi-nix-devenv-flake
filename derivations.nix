@@ -23,5 +23,9 @@
 let
   pkgs = import <nixpkgs> {};
   derivs = import ./required-packages.nix {pkgs = pkgs;};
+  pulumictl = import ./pulumictl.nix {pkgs = pkgs;};
 
-in derivs ++ [pkgs.gnumake]
+in derivs ++ [
+  pkgs.gnumake
+  pulumictl
+]

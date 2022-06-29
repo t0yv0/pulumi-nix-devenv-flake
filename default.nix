@@ -24,7 +24,7 @@
   jdk11 = pkgs.jdk11;
   jq = pkgs.jq;
   maven = pkgs.maven;
-  nodejs = pkgs.nodejs-16_x;
+  nodejs = pkgs.nodejs;
   pipenv = pkgs.pipenv;
   podman = pkgs.podman;
   pulumictl = import ./packages/pulumictl.nix { pkgs = pkgs; };

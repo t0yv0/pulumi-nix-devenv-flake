@@ -1,11 +1,5 @@
 { pkgs ? import <nixpkgs> {} }:
 
-# Development environment for https://github.com/pulumi/pulumi
-#
-#     nix-shell # or nix-shell --pure
-#     cd ~/pulumi
-#     make build && make install
-
 {
   curl = pkgs.curl;
   delve = pkgs.delve;

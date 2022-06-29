@@ -1,4 +1,7 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  sources ? import ./nix/sources.nix,
+  pkgs ? import sources.nixpkgs {}
+}:
 
 {
   curl = pkgs.curl;

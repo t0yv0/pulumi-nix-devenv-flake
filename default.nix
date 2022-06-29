@@ -1,17 +1,33 @@
-# Development environment for https://github.com/pulumi/pulumi
-#
-#     nix-shell # or nix-shell --pure
-#     cd ~/pulumi
-#     make build && make install
+{
+  sources ? import ./nix/sources.nix,
+  pkgs ? import sources.nixpkgs {}
+}:
 
-let
-  pkgs = import ./pkgs.nix;
-  create-devenv = import ./create-devenv.nix;
-  pulumictl = import ./pulumictl.nix;
-
-in create-devenv
-  {
-    pulumictl = pulumictl { pkgs = pkgs; };
-    pkgs = pkgs;
-    go = pkgs.go_1_17;
-  }
+{
+  curl = pkgs.curl;
+  delve = pkgs.delve;
+  docker-compat = import ./packages/docker-compat.nix { pkgs = pkgs; podman = pkgs.podman; };
+  dotnet-sdk_3 = pkgs.dotnet-sdk_3;
+  gcc = pkgs.gcc;
+  git = pkgs.git;
+  gnumake = pkgs.gnumake;
+  go = pkgs.go;
+  go-task = pkgs.go-task;
+  golangci-lint = pkgs.golangci-lint;
+  goreleaser = pkgs.goreleaser;
+  gradle = pkgs.gradle;
+  hugo = pkgs.hugo;
+  jaeger = import ./packages/jaeger.nix { pkgs = pkgs; };
+  jdk11 = pkgs.jdk11;
+  jq = pkgs.jq;
+  maven = pkgs.maven;
+  nodejs = pkgs.nodejs;
+  opentelemetry-collector = import ./packages/opentelemetry-collector.nix { pkgs = pkgs; };
+  pipenv = pkgs.pipenv;
+  podman = pkgs.podman;
+  pulumictl = import ./packages/pulumictl.nix { pkgs = pkgs; };
+  python3 = pkgs.python3;
+  typescript = pkgs.nodePackages.typescript;
+  which = pkgs.which;
+  yarn = pkgs.yarn;
+}

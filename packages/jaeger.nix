@@ -14,7 +14,7 @@ let
 in
 
 pkgs.stdenv.mkDerivation {
-  name = "jaeger";
+  name = "jaeger-${version}";
   version = version;
   src = pkgs.fetchzip {
     url = "https://github.com/jaegertracing/jaeger/releases/download/v${version}/jaeger-${version}-${platform}-amd64.tar.gz";

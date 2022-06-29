@@ -22,6 +22,7 @@
   jq = pkgs.jq;
   maven = pkgs.maven;
   nodejs = pkgs.nodejs;
+  opentelemetry-collector = import ./packages/opentelemetry-collector.nix { pkgs = pkgs; };
   pipenv = pkgs.pipenv;
   podman = pkgs.podman;
   pulumictl = import ./packages/pulumictl.nix { pkgs = pkgs; };

@@ -1,6 +1,6 @@
 {
   sources ? import ./nix/sources.nix,
-  pkgs ? sources.nixpkgs
+  pkgs ? import sources.nixpkgs {}
 }:
 
 let

@@ -5,7 +5,7 @@ let
   version = "0.54.0";
 
   sha256 = {
-    linux = "tbd-linux";
+    linux = "sha256-kT0Hh/PbdvYC9jIES8YYpSlXejvPYXbKWYrlDS/Eiy8=";
     darwin = "06p53chrfpfkxn11kdjknz0mvi7cmbsp2jg74fkc26gwvjfw60h7";
   };
 

@@ -20,6 +20,7 @@
   jaeger = import ./packages/jaeger.nix { pkgs = pkgs; };
   jdk11 = pkgs.jdk11;
   jq = pkgs.jq;
+  hyperfine = pkgs.hyperfine;
   maven = pkgs.maven;
   nodejs = pkgs.nodejs;
   opentelemetry-collector = import ./packages/opentelemetry-collector.nix { pkgs = pkgs; };

@@ -3,20 +3,30 @@
   pkgs ? import sources.nixpkgs {}
 }:
 
+let
+
+  pkgs-mar-28-2022 = import (builtins.fetchTarball {
+    name = "pkgs-mar-28-2022";
+    url = "https://github.com/nixos/nixpkgs/archive/80d8655c15055472f0118a877351085cc22c1e92.tar.gz";
+    sha256 = "14aq8rikhpiwv7aw15cjxg88vxwzg02gn4w3wxqnm4g3yy20zzik";
+  }) {};
+
+in
+
 {
   curl = pkgs.curl;
   delve = pkgs.delve;
-  docker-compat = import ./packages/docker-compat.nix { pkgs = pkgs; podman = pkgs.podman; };
-  dotnet-sdk_3 = pkgs.dotnet-sdk_3;
+  dotnet-sdk_3 = pkgs-mar-28-2022.dotnet-sdk_3;
   gcc = pkgs.gcc;
   git = pkgs.git;
   gnumake = pkgs.gnumake;
-  go = pkgs.go;
+  go_1_18 = pkgs.go_1_18;
+
   go-task = pkgs.go-task;
-  golangci-lint = pkgs.golangci-lint;
+  golangci-lint = import ./packages/golangci-lint.nix { pkgs = pkgs; };
   goreleaser = pkgs.goreleaser;
   gradle = pkgs.gradle;
-  hugo = pkgs.hugo;
+  hugo = pkgs-mar-28-2022.hugo;
   jaeger = import ./packages/jaeger.nix { pkgs = pkgs; };
   jdk11 = pkgs.jdk11;
   jq = pkgs.jq;
@@ -25,7 +35,6 @@
   nodejs = pkgs.nodejs;
   opentelemetry-collector = import ./packages/opentelemetry-collector.nix { pkgs = pkgs; };
   pipenv = pkgs.pipenv;
-  podman = pkgs.podman;
   pulumictl = import ./packages/pulumictl.nix { pkgs = pkgs; };
   python3 = pkgs.python3;
   typescript = pkgs.nodePackages.typescript;

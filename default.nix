@@ -25,6 +25,7 @@ in
   go-task = pkgs.go-task;
   golangci-lint = import ./packages/golangci-lint.nix { pkgs = pkgs; };
   goreleaser = pkgs.goreleaser;
+  gotestfmt = import ./packages/gotestfmt.nix { pkgs = pkgs; };
   gradle = pkgs.gradle;
   hugo = pkgs-mar-28-2022.hugo;
   jaeger = import ./packages/jaeger.nix { pkgs = pkgs; };

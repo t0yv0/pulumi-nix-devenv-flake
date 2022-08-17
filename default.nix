@@ -16,12 +16,11 @@ in
 {
   curl = pkgs.curl;
   delve = pkgs.delve;
-  dotnet-sdk_3 = pkgs-mar-28-2022.dotnet-sdk_3;
+  dotnet-sdk_6 = pkgs-mar-28-2022.dotnet-sdk_6;
   gcc = pkgs.gcc;
   git = pkgs.git;
   gnumake = pkgs.gnumake;
   go_1_18 = pkgs.go_1_18;
-
   go-task = pkgs.go-task;
   golangci-lint = import ./packages/golangci-lint.nix { pkgs = pkgs; };
   goreleaser = pkgs.goreleaser;

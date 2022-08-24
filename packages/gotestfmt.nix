@@ -5,7 +5,7 @@ let
   version = "2.3.2";
 
   sha256 = {
-    linux = "S2f7+xGLKYDzEW9iarph6agG2gKDoqik0XNTEwAAAAA=";
+    linux = "/DIE6C2yHpBhgjmV+UGbEKYGeBt/RE49M3bTDHTMHcM=";
     darwin = "1ld2f99ws3904rnrs7iiwy7dbnsmvjlyl8jn6dmq24q22sdvlv96";
   };
 

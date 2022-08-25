@@ -7,13 +7,16 @@
     golangci-lint.inputs.nixpkgs.follows = "nixpkgs";
     pulumictl.url = github:t0yv0/pulumictl-flake/v0.0.32;
     pulumictl.inputs.nixpkgs.follows = "nixpkgs";
+    gotestfmt.url = github:t0yv0/gotestfmt-flake/v2.3.2;
+    gotestfmt.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     { self,
       nixpkgs,
       golangci-lint,
-      pulumictl
+      pulumictl,
+      gotestfmt
     }:
 
     let
@@ -27,6 +30,7 @@
             "golangci-lint"
             "hugo"
             "pulumictl"
+            "gotestfmt"
           ];
           depList = (map (key: builtins.getAttr key depSet)
             (builtins.attrNames depSet));
@@ -34,6 +38,7 @@
           name = "pulumi-nix-devenv";
           buildInputs = depList ++ [
             selfDefinedPackages.golangci-lint
+            selfDefinedPackages.gotestfmt
             selfDefinedPackages.pulumictl
           ];
         };
@@ -42,6 +47,8 @@
       packages.x86_64-darwin.golangci-lint = golangci-lint.packages.x86_64-darwin.default;
       packages.x86_64-linux.pulumictl = pulumictl.packages.x86_64-linux.default;
       packages.x86_64-darwin.pulumictl = pulumictl.packages.x86_64-darwin.default;
+      packages.x86_64-linux.gotestfmt = gotestfmt.packages.x86_64-linux.default;
+      packages.x86_64-darwin.gotestfmt = gotestfmt.packages.x86_64-darwin.default;
       devShells.x86_64-linux.default = defDevShell {
         nixpkgs = nixpkgs;
         sys = "x86_64-linux";

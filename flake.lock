@@ -47,6 +47,45 @@
         "url": "https://github.com/golangci/golangci-lint/releases/download/v1.49.0/golangci-lint-1.49.0-linux-amd64.tar.gz"
       }
     },
+    "gotestfmt": {
+      "inputs": {
+        "gotestfmt-src": "gotestfmt-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1661399245,
+        "narHash": "sha256-DPxmIcX2rLhyLMwCJPjTNBAuNDE9+LHsSV5yIZMjsbc=",
+        "owner": "t0yv0",
+        "repo": "gotestfmt-flake",
+        "rev": "e63ff804bdcf6538a363b9d884bcabd753c07730",
+        "type": "github"
+      },
+      "original": {
+        "owner": "t0yv0",
+        "ref": "v2.3.2",
+        "repo": "gotestfmt-flake",
+        "type": "github"
+      }
+    },
+    "gotestfmt-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1652635847,
+        "narHash": "sha256-BZ0hF/BdMzm8gPZNYQS8I9wv+YXZQWDqS1uUzdzVjUg=",
+        "owner": "haveyoudebuggedit",
+        "repo": "gotestfmt",
+        "rev": "f179b0e462a9dcf7101515d87eec4e4d7e58b92a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "haveyoudebuggedit",
+        "ref": "v2.3.2",
+        "repo": "gotestfmt",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1661262176,
@@ -105,6 +144,7 @@
     "root": {
       "inputs": {
         "golangci-lint": "golangci-lint",
+        "gotestfmt": "gotestfmt",
         "nixpkgs": "nixpkgs",
         "pulumictl": "pulumictl"
       }

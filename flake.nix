@@ -26,50 +26,59 @@
     }:
 
     let
-      defDevShell = { nixpkgs, sys }:
-        let
-          selfDefinedPackages = builtins.getAttr sys self.packages;
-          pkgs = import nixpkgs { system = sys; };
-          totalDepSet = import ./default.nix { pkgs = pkgs; };
-          depSet = builtins.removeAttrs totalDepSet [
-            "dotnet-sdk_6"
-            "golangci-lint"
-            "gotestfmt"
-            "hugo"
-            "jaeger"
-            "pulumictl"
-            "opentelemetry-collector"
-          ];
-          depList = (map (key: builtins.getAttr key depSet)
-            (builtins.attrNames depSet));
+
+      propagatedPackages = (pkgs: {
+        curl = pkgs.curl;
+        delve = pkgs.delve;
+        gcc = pkgs.gcc;
+        git = pkgs.git;
+        gnumake = pkgs.gnumake;
+        go-task = pkgs.go-task;
+        go_1_18 = pkgs.go_1_18;
+        dotnet-sdk_6 = pkgs.dotnet-sdk_6;
+        goreleaser = pkgs.goreleaser;
+        gradle = pkgs.gradle;
+        hugo = pkgs.hugo;
+        hyperfine = pkgs.hyperfine;
+        jdk11 = pkgs.jdk11;
+        jq = pkgs.jq;
+        maven = pkgs.maven;
+        nodejs = pkgs.nodejs;
+        pipenv = pkgs.pipenv;
+        python3 = pkgs.python3;
+        typescript = pkgs.nodePackages.typescript;
+        which = pkgs.which;
+        yarn = pkgs.yarn;
+      });
+
+      forSys = (sys: pkg: (builtins.getAttr sys pkg.packages).default);
+
+      customPackages = (sys: builtins.mapAttrs (k: pkg: forSys sys pkg) {
+          golangci-lint = golangci-lint;
+          pulumictl = pulumictl;
+          gotestfmt = gotestfmt;
+          jaeger = jaeger;
+          opentelemetry-collector = opentelemetry-collector;
+      });
+
+      values = (s: (builtins.map (key: builtins.getAttr key s)
+        (builtins.attrNames s)));
+
+      allPackages = (sys:
+        let pkgs = import nixpkgs { system = sys; };
+        in customPackages sys // propagatedPackages pkgs);
+
+      defDevShell = (sys:
+        let pkgs = import nixpkgs { system = sys; };
         in pkgs.mkShell {
           name = "pulumi-nix-devenv";
-          buildInputs = depList ++ [
-            selfDefinedPackages.golangci-lint
-            selfDefinedPackages.gotestfmt
-            selfDefinedPackages.jaeger
-            selfDefinedPackages.opentelemetry-collector
-            selfDefinedPackages.pulumictl
-          ];
-        };
+          buildInputs = values (allPackages sys);
+        });
+
     in {
-      packages.x86_64-linux.golangci-lint = golangci-lint.packages.x86_64-linux.default;
-      packages.x86_64-darwin.golangci-lint = golangci-lint.packages.x86_64-darwin.default;
-      packages.x86_64-linux.pulumictl = pulumictl.packages.x86_64-linux.default;
-      packages.x86_64-darwin.pulumictl = pulumictl.packages.x86_64-darwin.default;
-      packages.x86_64-linux.gotestfmt = gotestfmt.packages.x86_64-linux.default;
-      packages.x86_64-darwin.gotestfmt = gotestfmt.packages.x86_64-darwin.default;
-      packages.x86_64-linux.jaeger = jaeger.packages.x86_64-linux.default;
-      packages.x86_64-darwin.jaeger = jaeger.packages.x86_64-darwin.default;
-      packages.x86_64-linux.opentelemetry-collector = opentelemetry-collector.packages.x86_64-linux.default;
-      packages.x86_64-darwin.opentelemetry-collector = opentelemetry-collector.packages.x86_64-darwin.default;
-      devShells.x86_64-linux.default = defDevShell {
-        nixpkgs = nixpkgs;
-        sys = "x86_64-linux";
-      };
-      devShells.x86_64-darwin.default = defDevShell {
-        nixpkgs = nixpkgs;
-        sys = "x86_64-darwin";
-      };
+      packages.x86_64-linux = allPackages "x86_64-linux";
+      packages.x86_64-darwin = allPackages "x86_64-darwin";
+      devShells.x86_64-linux.default = defDevShell "x86_64-linux";
+      devShells.x86_64-darwin.default = defDevShell "x86_64-darwin";
     };
 }

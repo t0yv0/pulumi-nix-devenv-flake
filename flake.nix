@@ -9,6 +9,8 @@
     pulumictl.inputs.nixpkgs.follows = "nixpkgs";
     gotestfmt.url = github:t0yv0/gotestfmt-flake/v2.3.2;
     gotestfmt.inputs.nixpkgs.follows = "nixpkgs";
+    jaeger.url = github:t0yv0/jaeger-flake/v1.35.1;
+    jaeger.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -16,7 +18,8 @@
       nixpkgs,
       golangci-lint,
       pulumictl,
-      gotestfmt
+      gotestfmt,
+      jaeger
     }:
 
     let
@@ -28,9 +31,10 @@
           depSet = builtins.removeAttrs totalDepSet [
             "dotnet-sdk_6"
             "golangci-lint"
-            "hugo"
-            "pulumictl"
             "gotestfmt"
+            "hugo"
+            "jaeger"
+            "pulumictl"
           ];
           depList = (map (key: builtins.getAttr key depSet)
             (builtins.attrNames depSet));
@@ -39,6 +43,7 @@
           buildInputs = depList ++ [
             selfDefinedPackages.golangci-lint
             selfDefinedPackages.gotestfmt
+            selfDefinedPackages.jaeger
             selfDefinedPackages.pulumictl
           ];
         };
@@ -49,6 +54,8 @@
       packages.x86_64-darwin.pulumictl = pulumictl.packages.x86_64-darwin.default;
       packages.x86_64-linux.gotestfmt = gotestfmt.packages.x86_64-linux.default;
       packages.x86_64-darwin.gotestfmt = gotestfmt.packages.x86_64-darwin.default;
+      packages.x86_64-linux.jaeger = jaeger.packages.x86_64-linux.default;
+      packages.x86_64-darwin.jaeger = jaeger.packages.x86_64-darwin.default;
       devShells.x86_64-linux.default = defDevShell {
         nixpkgs = nixpkgs;
         sys = "x86_64-linux";

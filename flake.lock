@@ -86,6 +86,53 @@
         "type": "github"
       }
     },
+    "jaeger": {
+      "inputs": {
+        "jaeger-x86_64-darwin": "jaeger-x86_64-darwin",
+        "jaeger-x86_64-linux": "jaeger-x86_64-linux",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1661399916,
+        "narHash": "sha256-ZaZQjBaKsge2IF1ElNAw7gI10ywzAs9ytDAeuR0lhPU=",
+        "owner": "t0yv0",
+        "repo": "jaeger-flake",
+        "rev": "19b6d1295d8abfa08824cc65590fb6e110648365",
+        "type": "github"
+      },
+      "original": {
+        "owner": "t0yv0",
+        "ref": "v1.35.1",
+        "repo": "jaeger-flake",
+        "type": "github"
+      }
+    },
+    "jaeger-x86_64-darwin": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-+y93OUazbHl7hBUWewv7yNNzZv59jp/ZjOIn68c0+yk=",
+        "type": "tarball",
+        "url": "https://github.com/jaegertracing/jaeger/releases/download/v1.35.1/jaeger-1.35.1-darwin-amd64.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/jaegertracing/jaeger/releases/download/v1.35.1/jaeger-1.35.1-darwin-amd64.tar.gz"
+      }
+    },
+    "jaeger-x86_64-linux": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-T2f7+xGLKYDzEW9iarph6agG2gKDoqik0XNTEwAHYYM=",
+        "type": "tarball",
+        "url": "https://github.com/jaegertracing/jaeger/releases/download/v1.35.1/jaeger-1.35.1-linux-amd64.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/jaegertracing/jaeger/releases/download/v1.35.1/jaeger-1.35.1-linux-amd64.tar.gz"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1661262176,
@@ -145,6 +192,7 @@
       "inputs": {
         "golangci-lint": "golangci-lint",
         "gotestfmt": "gotestfmt",
+        "jaeger": "jaeger",
         "nixpkgs": "nixpkgs",
         "pulumictl": "pulumictl"
       }

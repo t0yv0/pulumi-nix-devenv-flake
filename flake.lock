@@ -63,10 +63,50 @@
         "type": "github"
       }
     },
+    "pulumictl": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pulumictl-src": "pulumictl-src"
+      },
+      "locked": {
+        "lastModified": 1661394013,
+        "narHash": "sha256-OsgshTFNdqf8ePSgLWMqHV5O6iTVAM5oeWeCvBo7GcM=",
+        "owner": "t0yv0",
+        "repo": "pulumictl-flake",
+        "rev": "91ea538f86a35a36fe3bd4698e4ceacb07f28f62",
+        "type": "github"
+      },
+      "original": {
+        "owner": "t0yv0",
+        "ref": "v0.0.32",
+        "repo": "pulumictl-flake",
+        "type": "github"
+      }
+    },
+    "pulumictl-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1656436009,
+        "narHash": "sha256-CZ0DnQUnyj8aoesFymc+Uhv+3vdQhdxb2YHElAyqGWE=",
+        "owner": "pulumi",
+        "repo": "pulumictl",
+        "rev": "fc811a0cb57795ee001b155e24b1bab9aa009822",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pulumi",
+        "ref": "v0.0.32",
+        "repo": "pulumictl",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "golangci-lint": "golangci-lint",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pulumictl": "pulumictl"
       }
     }
   },

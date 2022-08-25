@@ -149,6 +149,45 @@
         "type": "github"
       }
     },
+    "opentelemetry-collector": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "opentelemetry-collector-src": "opentelemetry-collector-src"
+      },
+      "locked": {
+        "lastModified": 1661400995,
+        "narHash": "sha256-pgeB+jne68xMekDF13T1X7WJyLhfpV5mcOm7NGERYBE=",
+        "owner": "t0yv0",
+        "repo": "opentelemetry-collector-flake",
+        "rev": "fcced36d8874be04bf83bffc48f09de9acf93ec7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "t0yv0",
+        "ref": "v0.54.0",
+        "repo": "opentelemetry-collector-flake",
+        "type": "github"
+      }
+    },
+    "opentelemetry-collector-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1655919317,
+        "narHash": "sha256-y0NySQY6HQHHXyZXM+nYfDa74mn+k2p76ynH7tzE930=",
+        "owner": "open-telemetry",
+        "repo": "opentelemetry-collector",
+        "rev": "b094dbd3cdc5708d4c4d6ec5f09534da838bd87a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "open-telemetry",
+        "ref": "v0.54.0",
+        "repo": "opentelemetry-collector",
+        "type": "github"
+      }
+    },
     "pulumictl": {
       "inputs": {
         "nixpkgs": [
@@ -194,6 +233,7 @@
         "gotestfmt": "gotestfmt",
         "jaeger": "jaeger",
         "nixpkgs": "nixpkgs",
+        "opentelemetry-collector": "opentelemetry-collector",
         "pulumictl": "pulumictl"
       }
     }

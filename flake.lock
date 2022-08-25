@@ -1,12 +1,59 @@
 {
   "nodes": {
+    "golangci-lint": {
+      "inputs": {
+        "golangci-lint-x86_64-darwin": "golangci-lint-x86_64-darwin",
+        "golangci-lint-x86_64-linux": "golangci-lint-x86_64-linux",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1661391105,
+        "narHash": "sha256-TRGBKOUvxrP/RKZh4iZpGanDAHrPhgI7toLx7lf2MmY=",
+        "owner": "t0yv0",
+        "repo": "golangci-lint-flake",
+        "rev": "fe1296161060144dd0dbfaa9f94ad648ffcb8ad0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "t0yv0",
+        "ref": "v1.49.0",
+        "repo": "golangci-lint-flake",
+        "type": "github"
+      }
+    },
+    "golangci-lint-x86_64-darwin": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-+mls/tU56kRwQFkqWK7uQ12FhLDBvVSkujQgrn5H6Pc=",
+        "type": "tarball",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.49.0/golangci-lint-1.49.0-darwin-amd64.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.49.0/golangci-lint-1.49.0-darwin-amd64.tar.gz"
+      }
+    },
+    "golangci-lint-x86_64-linux": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-YpQuzK73HPjqeaT2SsLkWMyUDhn+lz2tevt1bNwCl2c=",
+        "type": "tarball",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.49.0/golangci-lint-1.49.0-linux-amd64.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.49.0/golangci-lint-1.49.0-linux-amd64.tar.gz"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1661187878,
-        "narHash": "sha256-/wCqoQB1BsaVi4nb8Iz0PreeBNMTim0p78NLtyWejFE=",
+        "lastModified": 1661262176,
+        "narHash": "sha256-42FXNd2B0QECaULG0Vx+oYzQ9euKcmlg2gmX2D+HbKI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "52527082ea267fe486f0648582d57c85486b2031",
+        "rev": "b9fd420fa535fd254c6f1f26df770b32a9dc98b4",
         "type": "github"
       },
       "original": {
@@ -18,6 +65,7 @@
     },
     "root": {
       "inputs": {
+        "golangci-lint": "golangci-lint",
         "nixpkgs": "nixpkgs"
       }
     }

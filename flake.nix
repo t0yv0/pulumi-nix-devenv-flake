@@ -33,10 +33,13 @@
     in {
       packages.x86_64-linux.golangci-lint = golangci-lint.packages.x86_64-linux.default;
       packages.x86_64-darwin.golangci-lint = golangci-lint.packages.x86_64-darwin.default;
-
       devShells.x86_64-linux.default = defDevShell {
         nixpkgs = nixpkgs;
         sys = "x86_64-linux";
+      };
+      devShells.x86_64-darwin.default = defDevShell {
+        nixpkgs = nixpkgs;
+        sys = "x86_64-darwin";
       };
     };
 }

@@ -5,7 +5,7 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-22.05;
     golangci-lint.url = github:t0yv0/golangci-lint-flake/v1.49.0;
     golangci-lint.inputs.nixpkgs.follows = "nixpkgs";
-    pulumictl.url = github:t0yv0/pulumictl-flake/v0.0.32;
+    pulumictl.url = github:t0yv0/pulumictl-flake/v0.0.32-r.1;
     pulumictl.inputs.nixpkgs.follows = "nixpkgs";
     gotestfmt.url = github:t0yv0/gotestfmt-flake/v2.3.2;
     gotestfmt.inputs.nixpkgs.follows = "nixpkgs";
@@ -51,9 +51,21 @@
         yarn = pkgs.yarn;
       });
 
-      forSys = (sys: pkg: (builtins.getAttr sys pkg.packages).default);
+      filterAttrs = (ok: attrs:
+        builtins.removeAttrs attrs
+          (builtins.filter (a: !(ok a (builtins.getAttr a attrs)))
+            (builtins.attrNames attrs)));
 
-      customPackages = (sys: builtins.mapAttrs (k: pkg: forSys sys pkg) {
+      forSys = (sys: pkg:
+        if builtins.hasAttr sys pkg.packages
+        then (builtins.getAttr sys pkg.packages).default
+        else "N/A");
+
+      selectPackages = (sys: attrs:
+        filterAttrs (k: v: !(v == "N/A"))
+          (builtins.mapAttrs (k: pkg: forSys sys pkg) attrs));
+
+      customPackages = (sys: selectPackages sys {
           golangci-lint = golangci-lint;
           pulumictl = pulumictl;
           gotestfmt = gotestfmt;
@@ -78,7 +90,9 @@
     in {
       packages.x86_64-linux = allPackages "x86_64-linux";
       packages.x86_64-darwin = allPackages "x86_64-darwin";
+      packages.aarch64-darwin = allPackages "aarch64-darwin";
       devShells.x86_64-linux.default = defDevShell "x86_64-linux";
       devShells.x86_64-darwin.default = defDevShell "x86_64-darwin";
+      devShells.aarch64-darwin.default = defDevShell "aarch64-darwin";
     };
 }

@@ -196,16 +196,16 @@
         "pulumictl-src": "pulumictl-src"
       },
       "locked": {
-        "lastModified": 1661394013,
-        "narHash": "sha256-OsgshTFNdqf8ePSgLWMqHV5O6iTVAM5oeWeCvBo7GcM=",
+        "lastModified": 1661452210,
+        "narHash": "sha256-TdjuZvrn2AM+GoHabknxH1ntJML8SjX4QBI5Kzg9d5Q=",
         "owner": "t0yv0",
         "repo": "pulumictl-flake",
-        "rev": "91ea538f86a35a36fe3bd4698e4ceacb07f28f62",
+        "rev": "0115747f5faaea74bff37e4e081fa1a12d1fb2b9",
         "type": "github"
       },
       "original": {
         "owner": "t0yv0",
-        "ref": "v0.0.32",
+        "ref": "v0.0.32-r.1",
         "repo": "pulumictl-flake",
         "type": "github"
       }

@@ -34,7 +34,7 @@
         git = pkgs.git;
         gnumake = pkgs.gnumake;
         go-task = pkgs.go-task;
-        go_1_18 = pkgs.go_1_18;
+        go_1_19 = pkgs.go_1_19;
         dotnet-sdk_6 = pkgs.dotnet-sdk_6;
         goreleaser = pkgs.goreleaser;
         gradle = pkgs.gradle;

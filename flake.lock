@@ -9,16 +9,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1670343483,
-        "narHash": "sha256-F0dL3Og4KudYwhrbRE2OyMyIKeD6/NxblrvZ1aOzcAE=",
+        "lastModified": 1677618122,
+        "narHash": "sha256-mtO+R+i2ooX1+ROgbE7Gkk9AHrhwUCdH7TbZSbzp7ak=",
         "owner": "t0yv0",
         "repo": "golangci-lint-flake",
-        "rev": "3bfba0697c655a0d0ea215ee070f954dbd245fe0",
+        "rev": "2ae199686599f86eaba07e501f176e083c56b3b3",
         "type": "github"
       },
       "original": {
         "owner": "t0yv0",
-        "ref": "v1.50.1",
+        "ref": "v1.51.2",
         "repo": "golangci-lint-flake",
         "type": "github"
       }
@@ -26,25 +26,25 @@
     "golangci-lint-x86_64-darwin": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-0xcARoNqS/7IoMbVcSGMDgplDpmTabBH2n8Wtt/5IZk=",
+        "narHash": "sha256-xkPgMdZJIQh2+JLyYeEOCQjzmBjUNS+iaPlSLx/frKo=",
         "type": "tarball",
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.50.1/golangci-lint-1.50.1-darwin-amd64.tar.gz"
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.51.2/golangci-lint-1.51.2-darwin-amd64.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.50.1/golangci-lint-1.50.1-darwin-amd64.tar.gz"
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.51.2/golangci-lint-1.51.2-darwin-amd64.tar.gz"
       }
     },
     "golangci-lint-x86_64-linux": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-rl6nzwDl0GMhvdpejFgo2sTCwFE2NdbdqNut7cHvWA0=",
+        "narHash": "sha256-liYnjdpH95PJ5ZLWxENiNplVXcUgUHdW9gVMlvKc8Qg=",
         "type": "tarball",
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.50.1/golangci-lint-1.50.1-linux-amd64.tar.gz"
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.51.2/golangci-lint-1.51.2-linux-amd64.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.50.1/golangci-lint-1.50.1-linux-amd64.tar.gz"
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.51.2/golangci-lint-1.51.2-linux-amd64.tar.gz"
       }
     },
     "gotestfmt": {

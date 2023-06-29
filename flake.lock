@@ -2,6 +2,7 @@
   "nodes": {
     "golangci-lint": {
       "inputs": {
+        "golangci-lint-aarch64-darwin": "golangci-lint-aarch64-darwin",
         "golangci-lint-x86_64-darwin": "golangci-lint-x86_64-darwin",
         "golangci-lint-x86_64-linux": "golangci-lint-x86_64-linux",
         "nixpkgs": [
@@ -9,21 +10,20 @@
         ]
       },
       "locked": {
-        "lastModified": 1687995958,
-        "narHash": "sha256-BhUcSmNxXhDFfHVInRJD4tjkYJX45alE+3PXF+1MaVs=",
+        "lastModified": 1688049524,
+        "narHash": "sha256-1VEu3xslsZSIGVKv6uN9C0fPnYczD8u5Wagd1TtCu60=",
         "owner": "t0yv0",
         "repo": "golangci-lint-flake",
-        "rev": "e0ae85395860a6ca279750145ae8c5f0dec7f5d2",
+        "rev": "9279c75e341440b66b458e89d647284b3470c2ca",
         "type": "github"
       },
       "original": {
         "owner": "t0yv0",
-        "ref": "v1.53.3",
         "repo": "golangci-lint-flake",
         "type": "github"
       }
     },
-    "golangci-lint-x86_64-darwin": {
+    "golangci-lint-aarch64-darwin": {
       "flake": false,
       "locked": {
         "narHash": "sha256-AhdOHc4T53KsWXQ5nSRsuY/KcWa6YO3wjzi50BJMOG8=",
@@ -33,6 +33,18 @@
       "original": {
         "type": "tarball",
         "url": "https://github.com/golangci/golangci-lint/releases/download/v1.53.3/golangci-lint-1.53.3-darwin-arm64.tar.gz"
+      }
+    },
+    "golangci-lint-x86_64-darwin": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-z1QTS2PlYhZywnJnxR6tJoAVGyuWs5K5EllrP4EWYi8=",
+        "type": "tarball",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.53.3/golangci-lint-1.53.3-darwin-amd64.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v1.53.3/golangci-lint-1.53.3-darwin-amd64.tar.gz"
       }
     },
     "golangci-lint-x86_64-linux": {

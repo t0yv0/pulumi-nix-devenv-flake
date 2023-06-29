@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-22.11;
-    golangci-lint.url = github:t0yv0/golangci-lint-flake/v1.53.3;
+    golangci-lint.url = github:t0yv0/golangci-lint-flake?branch=master;
     golangci-lint.inputs.nixpkgs.follows = "nixpkgs";
     pulumictl.url = github:t0yv0/pulumictl-flake/v0.0.32-r.1;
     pulumictl.inputs.nixpkgs.follows = "nixpkgs";
